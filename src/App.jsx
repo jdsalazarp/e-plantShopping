@@ -84,7 +84,13 @@ function App() {
               <>
                 <div className="cart-items">
                   {cartItems.map((item) => (
-                    <CartItem key={item.id} item={item} />
+                    <CartItem
+                      key={item.id}
+                      item={item}
+                      cartItems={cartItems}
+                      onContinueShopping={() => setPage("products")}
+                      onCheckout={() => alert("Coming Soon")}
+                    />
                   ))}
                 </div>
 

@@ -9,6 +9,33 @@ body {
   color: #243b2a;
 }
 
+.hero {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+  background-image:
+    linear-gradient(rgba(20, 70, 35, 0.65), rgba(20, 70, 35, 0.65)),
+    url("./assets/hero.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f8f1;
+  color: #243b2a;
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -62,10 +89,12 @@ button:disabled {
   justify-content: center;
   text-align: center;
   padding: 50px 20px;
-  background:
+  background-image:
     linear-gradient(rgba(20, 70, 35, 0.65), rgba(20, 70, 35, 0.65)),
-    url("./assets/hero.png")
-    center/cover;
+    url("./assets/hero.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: white;
 }
 
@@ -144,12 +173,6 @@ button:disabled {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.plant-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
 }
 
 .plant-card img {
@@ -165,7 +188,6 @@ button:disabled {
 .plant-info h3 {
   margin-top: 0;
   color: #1f5c35;
-  font-size: 1.3rem;
 }
 
 .plant-info p {
@@ -188,10 +210,6 @@ button:disabled {
   font-weight: bold;
 }
 
-.plant-info button:hover:not(:disabled) {
-  background: #246e36;
-}
-
 .cart-page {
   max-width: 1000px;
   margin: auto;
@@ -201,7 +219,6 @@ button:disabled {
 .cart-page > h1 {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 40px;
 }
 
 .empty-cart {
@@ -209,7 +226,6 @@ button:disabled {
   padding: 50px;
   text-align: center;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .cart-item {
@@ -219,7 +235,6 @@ button:disabled {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .cart-item img {
@@ -234,7 +249,6 @@ button:disabled {
 }
 
 .cart-item-info h3 {
-  margin-top: 0;
   color: #1f5c35;
 }
 
@@ -254,24 +268,11 @@ button:disabled {
   font-size: 1.2rem;
 }
 
-.quantity-controls button:hover:not(:disabled) {
-  background: #246e36;
-}
-
-.quantity-controls span {
-  font-weight: bold;
-  font-size: 1.1rem;
-}
-
 .delete-button {
   background: #c0392b;
   color: white;
   padding: 9px 16px;
   border-radius: 6px;
-}
-
-.delete-button:hover {
-  background: #992d22;
 }
 
 .cart-summary {
@@ -280,7 +281,6 @@ button:disabled {
   border-radius: 12px;
   margin-top: 30px;
   text-align: right;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .cart-buttons {
@@ -296,19 +296,16 @@ button:disabled {
   padding: 40px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
 .about-us h1 {
   color: #1f5c35;
-  margin-bottom: 20px;
 }
 
 .about-us p {
   color: #59675c;
   line-height: 1.7;
-  font-size: 1.05rem;
 }
 
 @media (max-width: 700px) {

@@ -13,42 +13,56 @@ function ProductList() {
     cartItems.some((item) => item.id === plantId);
 
   return (
-    <section className="product-list">
+    <main className="product-list">
       <h1>Our House Plants</h1>
 
-      {categories.map((category) => (
-        <section className="plant-section" key={category}>
-          <h2>{category}</h2>
+      {categories.map((category) => {
+        const categoryPlants = plants.filter(
+          (plant) => plant.category === category
+        );
 
-          <div className="products-grid">
-            {plants
-              .filter((plant) => plant.category === category)
-              .map((plant) => (
-                <div className="plant-card" key={plant.id}>
-                  <img src={plant.image} alt={plant.name} />
+        return (
+          <section className="plant-section" key={category}>
+            <h2>{category}</h2>
 
-                  <div className="plant-info">
-                    <h3>{plant.name}</h3>
-                    <p>{plant.description}</p>
-                    <p className="price">
-                      ${plant.price.toFixed(2)}
-                    </p>
+            <div className="products-grid">
+              {categoryPlants.map((plant) => {
+                const addedToCart = isInCart(plant.id);
 
-                    <button
-                      onClick={() => dispatch(addItem(plant))}
-                      disabled={isInCart(plant.id)}
-                    >
-                      {isInCart(plant.id)
-                        ? "Added to Cart"
-                        : "Add to Cart"}
-                    </button>
-                  </div>
-                </div>
-              ))}
-          </div>
-        </section>
-      ))}
-    </section>
+                return (
+                  <article className="plant-card" key={plant.id}>
+                    <img
+                      src={plant.image}
+                      alt={plant.name}
+                    />
+
+                    <div className="plant-info">
+                      <h3>{plant.name}</h3>
+
+                      <p>{plant.description}</p>
+
+                      <p className="price">
+                        ${plant.price.toFixed(2)}
+                      </p>
+
+                      <button
+                        type="button"
+                        onClick={() => dispatch(addItem(plant))}
+                        disabled={addedToCart}
+                      >
+                        {addedToCart
+                          ? "Added to Cart"
+                          : "Add to Cart"}
+                      </button>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
+    </main>
   );
 }
 

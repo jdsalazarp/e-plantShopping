@@ -17,12 +17,14 @@ function CartItem({ item }) {
   };
 
   const decreaseQuantity = () => {
-    dispatch(
-      updateQuantity({
-        id: item.id,
-        quantity: item.quantity - 1,
-      })
-    );
+    if (item.quantity > 1) {
+      dispatch(
+        updateQuantity({
+          id: item.id,
+          quantity: item.quantity - 1,
+        })
+      );
+    }
   };
 
   const deleteItem = () => {
@@ -31,11 +33,7 @@ function CartItem({ item }) {
 
   return (
     <article className="cart-item">
-      <img
-        src={item.image}
-        alt={item.name}
-        className="cart-item-image"
-      />
+      <img src={item.image} alt={item.name} />
 
       <div className="cart-item-info">
         <h3>{item.name}</h3>

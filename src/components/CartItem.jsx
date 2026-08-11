@@ -1,15 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import {
-  increaseQuantity,
-  decreaseQuantity,
-  removeFromCart,
-} from "../redux/CartSlice";
+import { removeItem, updateQuantity } from "../redux/CartSlice";
 
 function CartItem({ item }) {
   const dispatch = useDispatch();
 
   const total = item.price * item.quantity;
+
+  const changeQuantity = (newQuantity) => {
+    dispatch(
+      updateQuantity({
+        id: item.id,
+        quantity: newQuantity,
+      })
+    );
+  };
 
   return (
     <div className="cart-item">
@@ -17,16 +22,22 @@ function CartItem({ item }) {
 
       <div className="cart-item-info">
         <h3>{item.name}</h3>
+
         <p>Unit price: ${item.price.toFixed(2)}</p>
 
         <div className="quantity-controls">
-          <button onClick={() => dispatch(decreaseQuantity(item.id))}>
+          <button
+            onClick={() => changeQuantity(item.quantity - 1)}
+            disabled={item.quantity <= 1}
+          >
             -
           </button>
 
           <span>{item.quantity}</span>
 
-          <button onClick={() => dispatch(increaseQuantity(item.id))}>
+          <button
+            onClick={() => changeQuantity(item.quantity + 1)}
+          >
             +
           </button>
         </div>
@@ -37,7 +48,7 @@ function CartItem({ item }) {
 
         <button
           className="delete-button"
-          onClick={() => dispatch(removeFromCart(item.id))}
+          onClick={() => dispatch(removeItem(item.id))}
         >
           Delete
         </button>

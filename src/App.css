@@ -15,6 +15,11 @@ button {
   font-family: inherit;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .navbar {
   background: #1f5c35;
   color: white;
@@ -59,7 +64,7 @@ button {
   padding: 50px 20px;
   background:
     linear-gradient(rgba(20, 70, 35, 0.65), rgba(20, 70, 35, 0.65)),
-    url("https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=1600&q=80")
+    url("./assets/hero.png")
     center/cover;
   color: white;
 }
@@ -183,7 +188,7 @@ button {
   font-weight: bold;
 }
 
-.plant-info button:hover {
+.plant-info button:hover:not(:disabled) {
   background: #246e36;
 }
 
@@ -249,6 +254,10 @@ button {
   font-size: 1.2rem;
 }
 
+.quantity-controls button:hover:not(:disabled) {
+  background: #246e36;
+}
+
 .quantity-controls span {
   font-weight: bold;
   font-size: 1.1rem;
@@ -281,6 +290,27 @@ button {
   margin-top: 20px;
 }
 
+.about-us {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.about-us h1 {
+  color: #1f5c35;
+  margin-bottom: 20px;
+}
+
+.about-us p {
+  color: #59675c;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
 @media (max-width: 700px) {
   .navbar {
     flex-direction: column;
@@ -303,25 +333,4 @@ button {
   .cart-buttons {
     flex-direction: column;
   }
-}
-
-.about-us {
-  max-width: 900px;
-  margin: 50px auto;
-  padding: 40px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.about-us h1 {
-  color: #1f5c35;
-  margin-bottom: 20px;
-}
-
-.about-us p {
-  color: #59675c;
-  line-height: 1.7;
-  font-size: 1.05rem;
 }

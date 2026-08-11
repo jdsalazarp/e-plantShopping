@@ -7,11 +7,6 @@ function ProductList() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart.items);
 
-  const cartCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
-
   const categories = [...new Set(plants.map((plant) => plant.category))];
 
   const isInCart = (plantId) =>
@@ -19,12 +14,7 @@ function ProductList() {
 
   return (
     <main className="product-list">
-      <div className="product-list-header">
-        <h1>Our House Plants</h1>
-        <div className="cart-indicator" aria-label={`Shopping cart with ${cartCount} items`}>
-          🛒 Cart ({cartCount})
-        </div>
-      </div>
+      <h1>Our House Plants</h1>
 
       {categories.map((category) => {
         const categoryPlants = plants.filter(

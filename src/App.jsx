@@ -102,7 +102,7 @@ function App() {
                     <button
                       className="primary-button"
                       onClick={() =>
-                        alert("Thank you for shopping at Paradise Nursery!")
+                        alert("Checkout coming soon!")
                       }
                     >
                       Checkout

@@ -34,25 +34,27 @@ function CartItem({ item }) {
       <img
         src={item.image}
         alt={item.name}
+        className="cart-item-image"
       />
 
       <div className="cart-item-info">
         <h3>{item.name}</h3>
 
         <p>
-          Unit price: ${item.price.toFixed(2)}
+          Unit Price: <strong>${item.price.toFixed(2)}</strong>
         </p>
 
         <div className="quantity-controls">
           <button
             type="button"
             onClick={decreaseQuantity}
+            disabled={item.quantity <= 1}
             aria-label={`Decrease quantity of ${item.name}`}
           >
             -
           </button>
 
-          <span>{item.quantity}</span>
+          <span>Quantity: {item.quantity}</span>
 
           <button
             type="button"
@@ -64,8 +66,7 @@ function CartItem({ item }) {
         </div>
 
         <p>
-          Total:{" "}
-          <strong>${itemTotal.toFixed(2)}</strong>
+          Item Total: <strong>${itemTotal.toFixed(2)}</strong>
         </p>
 
         <button
